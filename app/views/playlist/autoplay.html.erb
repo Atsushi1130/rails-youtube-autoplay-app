@@ -1,0 +1,39 @@
+<h1>autoplay</h1>
+<div class="contents-container">
+  <div id="video-container"></div>
+</div>
+
+<script type="text/javascript">
+
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var playlist = [];
+  <% @videos.each do |video| %>
+    playlist.push("<%= video.videoId %>");
+  <% end %>
+
+  function onYouTubeIframeAPIReady() {
+    ytPlayer = new YT.Player("video-container",{
+      width: 560,
+      height: 315,
+      events: {
+        'onReady': onPlayerReady
+      }
+      // events: {
+      //   'onReady': onPlayerReady,
+      // }
+    });
+  }
+
+  function onPlayerReady() {
+    ytPlayer.cuePlaylist({
+      'listType': 'playlist',
+      'playlist': playlist,
+      'index': 0
+    })
+  }
+
+</script>

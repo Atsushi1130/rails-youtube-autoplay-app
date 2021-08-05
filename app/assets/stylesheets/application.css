@@ -1,0 +1,152 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+header{
+  background-color: #00ACEE;
+}
+
+p{
+  text-align: center;
+}
+
+.centered{
+  text-align: center;
+}
+
+.flash{
+  text-align: center;
+  color: white;
+  font-size: 24px;
+}
+
+.search_container{
+  text-align:center;
+  /* border: solid; */
+  padding: 3% 0;
+}
+
+.search-box{
+  border: solid white;
+  width: 20%;
+  border-radius: 10px;
+}
+
+.header_tag{
+  text-align: center;
+  padding-bottom: 1%;
+}
+
+.create_tag{
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  display: inline-block;
+}
+
+.contents{
+  padding-bottom: 100px;
+}
+
+footer{
+  width: 100%;
+  text-align: center;
+  background-color: #0099FF;
+  height: 100px;
+  position: fixed;
+  bottom: 0;
+}
+.footer_container{
+  position:relative;
+  height: 100%;
+}
+.footer-button1{
+  border: solid white;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  transition-duration: 0.2s;
+  border-radius: 30px;
+  padding: 10px;
+  background-color: white;
+  color: #0099FF;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(0%,-50%);
+  width: 10%;
+}
+.footer-button2{
+  border: solid white;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  transition-duration: 0.2s;
+  border-radius: 30px;
+  padding: 10px;
+  background-color: white;
+  color: #0099FF;
+  position: absolute;
+  top: 50%;
+  right: 30%;
+  transform: translate(0%,-50%);
+  width: 10%;
+}
+.footer-button1:hover{
+  opacity: 0.6;
+}
+.footer-button2:hover{
+  opacity: 0.6;
+}
+.logout{
+  float: right;
+  color: white;
+  padding-top: 1%;
+  padding-right: 5%;
+  text-decoration: none;
+}
+
+
+/* メディアクエリ */
+
+/* iPad以下 */
+@media screen and (max-width: 768px){
+  .footer_container{
+    position: relative;
+  }
+  .footer_des{
+    display: none;
+  }
+  .footer-button1{
+    position:absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 35%;
+    height: 50%;
+    right: 40%;
+  }
+  .footer-button2{
+    position:absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 35%;
+    height: 50%;
+    left: 40%;
+  }
+}

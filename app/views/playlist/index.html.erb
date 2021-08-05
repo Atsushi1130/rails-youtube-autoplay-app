@@ -1,0 +1,22 @@
+<% if @current_user %>
+  <h1>プレイリスト一覧</h1>
+  <% if @playlists.length >= 1 %>
+    <% @playlists.each do |playlist| %>
+      <div class="playlist-container">
+        <div class="playlist-container-left">
+          <%= link_to(playlist.name,"playlist/#{playlist.id}/detail",{class: "playlist-name"}) %>
+        </div>
+        <div class="playlist-container-right">
+          <%= link_to("削除","/delete/#{playlist.id}",{class: "delete-button"}) %>
+        </div>
+        <br>
+      </div>
+    <% end %>
+  <% else %>
+    <p>まだプレイリストがありません</p>
+  <% end %>
+<% else %>
+  <h1>アカウントを作成して、自分だけのプレイリストを作成しましょう！</h1>
+  <p>このアプリでは広告なしでYoutubeを楽しむことができます</p>
+  <p>自分だけのプレイリストを作成することで、広告が出ることなく、いつでもお気に入りの動画をストレスフリーで見ることができます！</p>
+<% end %>

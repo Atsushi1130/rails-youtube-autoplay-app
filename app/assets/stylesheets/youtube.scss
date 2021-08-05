@@ -1,0 +1,35 @@
+// Place all the styles related to the youtube controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.contents-container{
+  border: solid 1px white;
+  width: 80%;
+  padding: 20px 0;
+  margin: auto;
+  text-align: center;
+  background-color: #dcdcdc;
+}
+
+.modal{
+  display: none;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.modal__bg{
+  background: rgba(0,0,0,0.3);
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+}
+.modal__content{
+    background: #fff;
+    left: 50%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+}

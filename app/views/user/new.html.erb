@@ -1,0 +1,14 @@
+<div id="form">
+  <h2 class="form-title">新規作成</h2>
+  <%= form_tag("/users/create") do %>
+    <div class="create-form-container">
+      <p>ユーザ名</p>
+      <p class="name"><input type="name" name="name"></p>
+      <p>メールアドレス</p>
+      <p class="mail"><input name="email" type="email"></p>
+      <p>パスワード</p>
+      <p class="pass"><input name="password" type="password"></p>
+      <p class="submit"><input type="submit" value="新規登録"></p>
+    </div>
+  <% end %>
+</div>

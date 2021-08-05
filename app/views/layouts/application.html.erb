@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsYoutubeApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <% if flash[:notice] %>
+        <p class="flash"><%= flash[:notice] %></p>
+      <% end %>
+      <% if @current_user %>
+        <%= link_to("ログアウト","/logout",{class: "logout"}) %>
+      <% end %>
+      <div class="search_container">
+        <%= form_tag("/search",:method => 'get') do %>
+          <input type="text" name="keyword" placeholder="キーワード検索" class="search-box">
+          <input type="submit" value='検索'>
+        <% end %>
+      </div>
+      <div class="header_tag">
+        <% if @flag %>
+          <%= link_to("プレイリスト一覧へ","/",{class: "create_tag"}) %>
+        <% else %>
+          <%= link_to("プレイリスト作成","/new/playlist",{class: "create_tag"}) %>
+        <% end %>
+      </div>
+    </header>
+    <div class="contents">
+      <%= yield %>
+    </div>
+    <% if @current_user %>
+    <% else %>
+      <footer>
+          <div class="footer_container">
+            <%= link_to("アカウント作成","/signup",{class: "footer-button1"}) %>
+            <%= link_to("ログイン","/login_form",{class: "footer-button2"}) %>
+          </div>
+        </footer>
+      <% end %>
+  </body>
+</html>

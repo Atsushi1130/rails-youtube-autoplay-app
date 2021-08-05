@@ -1,0 +1,21 @@
+<% if @current_user %>
+<div id="form">
+  <h1 class="form-title">新規作成</h1>
+  <%= form_tag("/create/playlist") do %>
+    <div class="create-form-container">
+      <% @playlist.errors.full_messages.each do |message| %>
+        <%= message %>
+      <% end %>
+      <p>プレイリスト名</p>
+      <p class="name"><input type="name" name="name"></p>
+      <p>説明文(任意)</p>
+      <p class="description"><textarea type="description" name="description"></textarea></p>
+      <p class="submit"><input type="submit" value="作成"></p>
+    </div>
+  <% end %>
+</div>
+<% else %>
+  <h1>ログインが必要です</h1>
+  <p>ログインは<%= link_to("こちら","/login_form") %>から</p>
+  <p>アカウントをお持ちでない場合は<%= link_to("こちら","/signup") %>から</p>
+<% end %>

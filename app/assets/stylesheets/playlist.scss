@@ -1,0 +1,67 @@
+// Place all the styles related to the playlist controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+h1{
+  text-align: center;
+}
+
+/* index.html.erb */
+
+.playlist-container{
+  height: 60px;
+  border: solid 1px white;
+  background-color: #dcdcdc;
+  position: relative;
+}
+.playlist-container-left{
+  width: 59%;
+  float: left;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-20%,-50%);
+}
+.playlist-name{
+  text-decoration: none;
+  font-size: 24px;
+  color: blue;
+}
+.playlist-name:hover{
+  opacity: 0.8;
+}
+.playlist-container-right{
+  width: 19%;
+  float: right;
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translate(-10%,-50%);
+  text-align: center;
+}
+.delete-button{
+  text-decoration: none;
+  background-color: #00ACEE;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+.delete-button:hover{
+  opacity: 0.8;
+}
+
+/* detail.html.erb */
+.detail-delete-button{
+  padding-top: 10px;
+}
+
+/*new.html.erb*/
+.description{
+  margin-bottom: 20px;
+}
+textarea[type="description"] {
+  width: 300px;
+  padding: 4px;
+  font-size: 14px;
+  display: block;
+  margin:0 auto;
+  }

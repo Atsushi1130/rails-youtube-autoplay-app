@@ -1,0 +1,111 @@
+<% @youtube_data.items.each do |item| %>
+  <% snippet = item.snippet %>
+  <div class="contents-container">
+    <p><%= snippet.title %></p>
+    <div><iframe width="560" height="315" src="https://www.youtube.com/embed/<%= item.id.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    <% if @index == 0 %>
+      <button class="js-modal-open-0">プレイリストに登録</button>
+    <% elsif @index == 1 %>
+      <button class="js-modal-open-1">プレイリストに登録</button>
+      <% elsif @index == 2 %>
+        <button class="js-modal-open-2">プレイリストに登録</button>
+    <% end %>
+  </div>
+  <div class="modal js-modal-0">
+    <div class="modal__bg js-modal-close"></div>
+    <div class="modal__content">
+      <% if @current_user %>
+        <p>登録したいプレイリストを選択してください</p>
+        <% if @playlists == nil %>
+          <p>まだプレイリストが作成されていません。<%= link_to("こちら","/new/playlist") %>から作成してください！</p>
+        <% else %>
+          <% @playlists.each do |playlist| %>
+            <p><%= link_to(playlist.name,"/playlist/#{playlist.id}/register/#{@youtube_data.items[0].id.video_id}",{method: "post"}) %></p>
+          <% end %>
+        <% end %>
+      <% else %>
+        <p>ログインが必要です</p>
+        <p>ログインは<%= link_to("こちら","/login_form") %>から</p>
+      <% end %>
+      <div class="centered">
+        <a class="js-modal-close" href="">閉じる</a>
+      </div>
+    </div>
+  </div>
+  <div class="modal js-modal-1">
+    <div class="modal__bg js-modal-close"></div>
+    <div class="modal__content">
+      <% if @current_user %>
+        <p>登録したいプレイリストを選択してください</p>
+        <% if @playlists == nil %>
+          <p>まだプレイリストが作成されていません。<%= link_to("こちら","/new/playlist") %>から作成してください！</p>
+        <% else %>
+          <% @playlists.each do |playlist| %>
+            <p><%= link_to(playlist.name,"/playlist/#{playlist.id}/register/#{@youtube_data.items[1].id.video_id}",{method: "post"}) %></p>
+          <% end %>
+        <% end %>
+      <% else %>
+        <p>ログインが必要です</p>
+        <p>ログインは<%= link_to("こちら","/login_form") %>から</p>
+      <% end %>
+      <div class="centered">
+        <a class="js-modal-close" href="">閉じる</a>
+      </div>
+    </div>
+  </div>
+  <div class="modal js-modal-2">
+    <div class="modal__bg js-modal-close"></div>
+    <div class="modal__content">
+      <% if @current_user %>
+        <p>登録したいプレイリストを選択してください</p>
+        <% if @playlists == nil %>
+          <p>まだプレイリストが作成されていません。<%= link_to("こちら","/new/playlist") %>から作成してください！</p>
+        <% else %>
+          <% @playlists.each do |playlist| %>
+            <p><%= link_to(playlist.name,"/playlist/#{playlist.id}/register/#{@youtube_data.items[2].id.video_id}",{method: "post"}) %></p>
+          <% end %>
+        <% end %>
+      <% else %>
+        <p>ログインが必要です</p>
+        <p>ログインは<%= link_to("こちら","/login_form") %>から</p>
+      <% end %>
+      <div class="centered">
+        <a class="js-modal-close" href="">閉じる</a>
+      </div>
+    </div>
+  </div>
+  <% @index += 1 %>
+<% end %>
+
+<script type="text/javascript">
+  $(function(){
+    $('.js-modal-open-0').on('click',function(){
+        $('.js-modal-0').fadeIn();
+        return false;
+    });
+    $('.js-modal-close').on('click',function(){
+        $('.js-modal-0').fadeOut();
+        return false;
+    });
+  });
+  $(function(){
+    $('.js-modal-open-1').on('click',function(){
+        $('.js-modal-1').fadeIn();
+        return false;
+    });
+    $('.js-modal-close').on('click',function(){
+        $('.js-modal-1').fadeOut();
+        return false;
+    });
+  });
+  $(function(){
+    $('.js-modal-open-2').on('click',function(){
+        $('.js-modal-2').fadeIn();
+        return false;
+    });
+    $('.js-modal-close').on('click',function(){
+        $('.js-modal-2').fadeOut();
+        return false;
+    });
+  });
+</script>
