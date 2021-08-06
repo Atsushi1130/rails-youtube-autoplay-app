@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   get "/login_form" => "user#login_form"
   post "login" => "user#login"
   get "/logout" => "user#logout"
+  get "/user/:id/edit" => "user#edit"
+  post "/user/:id/update" => "user#update"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

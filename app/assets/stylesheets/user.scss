@@ -91,20 +91,32 @@ input[type="password"] {
   background: #37a4bf;
  }
 
- /* メディアクエリ */
- /* iPad以下 */
- @media screen and (max-width: 768px){
-   #form{
-     width: 90%;
-   }
-   .txt_a_ac{
-     width: 90%;
-     display: block;
-     margin: 0 auto;
-   }
-   .function_button{
-     position: absolute;
-     top: 50%;
-     right:4%;
-   }
+ .iPhone{
+   display: none;
  }
+
+ /* メディアクエリ */
+ /*iPad Pro以下*/
+  @media screen and (max-width: 1024px){
+    #form{
+      width: 70%;
+      margin: 30px auto;
+      padding: 20px;
+      border: 1px solid #555;
+      }
+  }
+  /* iPhone 6/7/8Plus 以下 */
+  @media screen and (max-width: 415px){
+    input[type="name"],
+    input[type="email"],
+    input[type="password"] {
+      width: 200px;
+      padding: 4px;
+      font-size: 14px;
+      display: block;
+      margin:0 auto;
+    }
+    .iPhone{
+      display: block;
+    }
+  }

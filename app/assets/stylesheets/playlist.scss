@@ -64,4 +64,34 @@ textarea[type="description"] {
   font-size: 14px;
   display: block;
   margin:0 auto;
+}
+
+.iPad{
+  diaplay: none;
+}
+
+  /* メディアクエリ */
+  /* iPad Pro以下 */
+@media screen and (max-width: 1024px){
+  .iPad{
+    display: block;
   }
+}
+/* iPhone 6/7/8Plus 以下 */
+@media screen and (max-width: 415px){
+  textarea[type="description"] {
+    width: 200px;
+    padding: 4px;
+    font-size: 14px;
+    display: block;
+    margin:0 auto;
+  }
+  .video-contains{
+    width: 250px;
+    height: 162px;
+  }
+  #video-container{
+    width: 250px;
+    height: 162px;
+  }
+}

@@ -15,7 +15,7 @@
  */
 
 header{
-  background-color: #00ACEE;
+  background-color: #0099FF;
 }
 
 p{
@@ -33,7 +33,7 @@ p{
 }
 
 .search_container{
-  text-align:center;
+  text-align: center;
   /* border: solid; */
   padding: 3% 0;
 }
@@ -41,7 +41,16 @@ p{
 .search-box{
   border: solid white;
   width: 20%;
-  border-radius: 10px;
+  border-radius: 20px;
+  font-size: 24px;
+}
+.search-submit{
+  font-size: 24px;
+  color: white;
+  background-color: black;
+  border: solid black;
+  border-radius: 20px;
+
 }
 
 .header_tag{
@@ -110,43 +119,89 @@ footer{
 .footer-button2:hover{
   opacity: 0.6;
 }
+.edit{
+  float: right;
+  color: white;
+  margin-top: 1%;
+  margin-right: 5%;
+  text-decoration: none;
+}
+
 .logout{
   float: right;
   color: white;
-  padding-top: 1%;
-  padding-right: 5%;
+  margin-top: 1%;
+  margin-right: 5%;
   text-decoration: none;
 }
 
 
 /* メディアクエリ */
-
-/* iPad以下 */
-@media screen and (max-width: 768px){
-  .footer_container{
-    position: relative;
+/* iPad Pro以下 */
+@media screen and (max-width: 1024px){
+  header{
+    height: 250px;
   }
-  .footer_des{
-    display: none;
+  footer{
+    height: 150px;
   }
   .footer-button1{
-    position:absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 35%;
-    height: 50%;
-    right: 40%;
+    position: absolute;
+    left: 20%;
+    width: 20%;
   }
   .footer-button2{
-    position:absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 35%;
-    height: 50%;
-    left: 40%;
+    position: absolute;
+    right: 20%;
+    width: 20%;
+  }
+  .search_container{
+    text-align: center;
+    padding: 5% 0;
+  }
+  .search-box{
+    width: 30%;
+    padding: 10px 0;
+  }
+  p{
+    font-size: 30px;
+  }
+
+}
+/* iPhone 6/7/8Plus 以下 */
+@media screen and (max-width: 415px){
+  p{
+    font-size: 14px;
+  }
+  header{
+    height: 150px;
+  }
+  .flash{
+    font-size: 14px;
+  }
+  .search_container{
+    text-align: center;
+    /* border: solid; */
+    padding-top: 10%;
+  }
+  .search-box{
+    border: solid white;
+    width: 50%;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+  .logout{
+    float: left;
+    padding-left: 10px;
+  }
+  .footer-button1{
+    position: absolute;
+    left: 10%;
+    width: 30%;
+  }
+  .footer-button2{
+    position: absolute;
+    right: 10%;
+    width: 30%;
   }
 }

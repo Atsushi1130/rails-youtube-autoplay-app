@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
 
   <body>
@@ -16,19 +17,22 @@
         <p class="flash"><%= flash[:notice] %></p>
       <% end %>
       <% if @current_user %>
+        <%= link_to("登録情報の変更","/user/#{@current_user.id}/edit",{class: "edit"}) %>
         <%= link_to("ログアウト","/logout",{class: "logout"}) %>
       <% end %>
       <div class="search_container">
         <%= form_tag("/search",:method => 'get') do %>
           <input type="text" name="keyword" placeholder="キーワード検索" class="search-box">
-          <input type="submit" value='検索'>
+          <button type="submit" class="search-submit">
+            <i class="fas fa-search"></i>
+          </button>
         <% end %>
       </div>
       <div class="header_tag">
         <% if @flag %>
-          <%= link_to("プレイリスト一覧へ","/",{class: "create_tag"}) %>
+          <p><%= link_to("プレイリスト一覧へ","/",{class: "create_tag"}) %></p>
         <% else %>
-          <%= link_to("プレイリスト作成","/new/playlist",{class: "create_tag"}) %>
+          <p><%= link_to("プレイリスト作成","/new/playlist",{class: "create_tag"}) %></p>
         <% end %>
       </div>
     </header>
