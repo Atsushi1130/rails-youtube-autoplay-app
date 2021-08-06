@@ -54,7 +54,9 @@ p{
   background-color: black;
   border: solid black;
   border-radius: 20px;
-
+}
+.search-submit:hover{
+  cursor: pointer;
 }
 
 .header_tag{

@@ -9,7 +9,7 @@ class YoutubeController < ApplicationController
     opt = {
       q: keyword,
       type: 'video',
-      max_results: 3,
+      max_results: 5,
       order: :relevance,
       page_token: next_page_token,
     }
@@ -20,11 +20,30 @@ class YoutubeController < ApplicationController
     @youtube_data = find_videos(params[:keyword])
     if @current_user
       @playlists = Playlist.where(user_id: @current_user.id)
+      if @playlists.length == 0
+        @playlists = nil
+      end
     else
       @playlists = nil
     end
     @flag = true
     @index = 0
+    @count = 0
+  end
+
+  def test
+    @youtube_data = find_videos(params[:keyword])
+    if @current_user
+      @playlists = Playlist.where(user_id: @current_user.id)
+      if @playlists.length == 0
+        @playlists = nil
+      end
+    else
+      @playlists = nil
+    end
+    @flag = true
+    @index = 0
+    @count = 0
   end
 
   def delete
