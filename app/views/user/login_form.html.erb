@@ -1,6 +1,9 @@
 <div id="form">
   <h2 class="form-title">Log in</h2>
   <%= form_tag("/login") do %>
+    <% if @error_message %>
+      <%= @error_message %>
+    <% end %>
     <p>メールアドレス</p>
     <p class="mail"><input name="email" type="email" value=<%= @email %>></p>
     <p>パスワード</p>

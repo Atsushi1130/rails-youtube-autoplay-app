@@ -5,10 +5,15 @@
       <% @user.errors.full_messages.each do |message| %>
         <%= message %>
       <% end %>
+      <%= @verify_message %>
       <p>ユーザ名</p>
       <p class="name"><input type="name" name="name" value=<%= @user.name %>></p>
       <p>メールアドレス</p>
       <p class="mail"><input name="email" type="email" value=<%= @user.email %>></p>
+      <p>パスワード</p>
+      <p class="pass"><input type="password" name="password"></p>
+      <p>パスワード(確認用)</p>
+      <p class="pass"><input type="password" name="pass_verify"></p>
       <p class="submit"><input type="submit" value="変更"></p>
     </div>
   <% end %>

@@ -32,6 +32,7 @@ class UserController < ApplicationController
       session[:user_id] = @user.id
       redirect_to("/")
     else
+      @error_message = "メールアドレス、またはパスワードが間違っています"
       flash[:notice] = "ログインに失敗しました"
       @email = params[:email]
       @password = params[:password]
@@ -55,10 +56,18 @@ class UserController < ApplicationController
     @user.name = params[:name]
     @user.email = params[:email]
     @user.password = params[:password]
-    if @user.save
+    @user_flag = false
+    @verify_message = nil
+    if params[:password] == params[:pass_verify]
+      @user_flag = true
+    end
+    if @user.save && @user_flag
       flash[:notice] = "登録情報を変更しました"
       redirect_to("/")
     else
+      if @user_flag == false
+        @verify_message = "パスワードが確認用と異なっています"
+      end
       render("user/edit.html.erb")
     end
   end

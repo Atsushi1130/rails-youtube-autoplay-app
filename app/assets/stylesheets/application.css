@@ -35,14 +35,18 @@ p{
 .search_container{
   text-align: center;
   /* border: solid; */
-  padding: 3% 0;
+  padding: 5% 0;
 }
 
 .search-box{
-  border: solid white;
+  border: none;
   width: 20%;
   border-radius: 20px;
   font-size: 24px;
+  padding: 5px 10px;
+}
+.search-box:focus{
+  outline: 0;
 }
 .search-submit{
   font-size: 24px;
@@ -125,14 +129,22 @@ footer{
   margin-top: 1%;
   margin-right: 5%;
   text-decoration: none;
+  border: solid 2px white;
+  padding: 4px;
+  border-radius: 20px;
 }
-
 .logout{
   float: right;
   color: white;
   margin-top: 1%;
   margin-right: 5%;
   text-decoration: none;
+  border: solid 2px white;
+  padding: 4px;
+  border-radius: 20px;
+}
+.edit:hover,.logout:hover{
+  opacity: 0.8;
 }
 
 
@@ -140,7 +152,7 @@ footer{
 /* iPad Pro以下 */
 @media screen and (max-width: 1024px){
   header{
-    height: 250px;
+    height: 200px;
   }
   footer{
     height: 150px;
@@ -157,14 +169,16 @@ footer{
   }
   .search_container{
     text-align: center;
-    padding: 5% 0;
+    padding: 7% 0 0 0 ;
   }
   .search-box{
     width: 30%;
-    padding: 10px 0;
   }
   p{
     font-size: 30px;
+  }
+  .header_tag{
+    padding: 20px 0;
   }
 
 }
@@ -190,10 +204,6 @@ footer{
     border-radius: 20px;
     font-size: 14px;
   }
-  .logout{
-    float: left;
-    padding-left: 10px;
-  }
   .footer-button1{
     position: absolute;
     left: 10%;
@@ -203,5 +213,33 @@ footer{
     position: absolute;
     right: 10%;
     width: 30%;
+  }
+  .contents{
+    padding-bottom:200px;
+  }
+  .edit{
+    float: right;
+    color: white;
+    margin-top: 1%;
+    margin-right: 5%;
+    text-decoration: none;
+    border: solid 2px white;
+    padding: 4px;
+    border-radius: 20px;
+    font-size: 12px;
+  }
+  .logout{
+    float: left;
+    color: white;
+    margin-top: 1%;
+    margin-left: 5%;
+    text-decoration: none;
+    border: solid 2px white;
+    padding: 4px;
+    border-radius: 20px;
+    font-size: 12px;
+  }
+  .create_tag{
+    font-size: 14px;
   }
 }
