@@ -3,7 +3,7 @@ class YoutubeController < ApplicationController
 
   def find_videos(keyword)
     service = Google::Apis::YoutubeV3::YouTubeService.new
-    service.key = 'AIzaSyCfYzxEOz5wNahVUMS11Hjdhf2-9VajLhQ'
+    service.key = 'API-KEY'
 
     next_page_token = nil
     opt = {
