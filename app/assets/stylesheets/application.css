@@ -42,21 +42,21 @@ p{
   border: none;
   width: 20%;
   border-radius: 20px;
-  font-size: 24px;
-  padding: 5px 10px;
+  padding: 10px 10px;
 }
 .search-box:focus{
   outline: 0;
 }
 .search-submit{
-  font-size: 24px;
   color: white;
   background-color: black;
   border: solid black;
   border-radius: 20px;
+  padding: 8px;
 }
 .search-submit:hover{
   cursor: pointer;
+  opacity: 0.8;
 }
 
 .header_tag{

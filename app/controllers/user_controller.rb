@@ -1,4 +1,6 @@
 class UserController < ApplicationController
+  before_action :remain_search_keyword
+
   def new
     @user = User.new
   end

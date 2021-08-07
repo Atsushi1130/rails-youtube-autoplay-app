@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
   def flag
     @flag = false
   end
+
+  def remain_search_keyword
+    @keyword = params[:keyword]
+  end
 end

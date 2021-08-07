@@ -22,7 +22,7 @@
       <% end %>
       <div class="search_container">
         <%= form_tag("/search",:method => 'get') do %>
-          <input type="text" name="keyword" placeholder="キーワード検索" class="search-box">
+          <input type="text" name="keyword" placeholder="キーワード検索" class="search-box" value=<%= @keyword %>>
           <button type="submit" class="search-submit">
             <i class="fas fa-search"></i>
           </button>

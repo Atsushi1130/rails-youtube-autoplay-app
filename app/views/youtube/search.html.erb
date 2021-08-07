@@ -63,11 +63,11 @@
           element5.appendChild(element7);
           var br_element = document.createElement("br");
           element5.appendChild(br_element);
-          // p_element3.textContent = "<%= link_to(playlist.name,"/playlist/#{playlist.id}/register/#{@youtube_data.items[@index].id.video_id}",{method: "post"}) %>"
         <% end %>
       <% end %>
     <% else %>
       p_element2.textContent = "ログインが必要です";
+      element5.appendChild(p_element2);
     <% end %>
 
     var element6 = document.createElement("div");

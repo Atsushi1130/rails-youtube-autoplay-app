@@ -1,5 +1,6 @@
 class PlaylistController < ApplicationController
   before_action :flag
+  before_action :remain_search_keyword
 
   def index
     if @current_user
