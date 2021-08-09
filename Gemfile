@@ -61,3 +61,5 @@ group :production do
 end
 
 gem 'bcrypt'
+gem 'kaminari'
+gem 'jquery-rails'

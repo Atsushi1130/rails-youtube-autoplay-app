@@ -14,3 +14,4 @@ ActiveStorage.start()
 
 require("jquery")
 require("search_page.js")
+require("jquery.jscroll.min.js")

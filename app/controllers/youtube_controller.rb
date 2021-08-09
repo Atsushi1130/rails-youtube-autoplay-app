@@ -10,7 +10,7 @@ class YoutubeController < ApplicationController
     opt = {
       q: keyword,
       type: 'video',
-      max_results: 5,
+      max_results: 6,
       order: :relevance,
       page_token: next_page_token,
     }
@@ -18,7 +18,8 @@ class YoutubeController < ApplicationController
   end
 
   def search
-    @youtube_data = find_videos(params[:keyword])
+    @youtube_data = find_videos(params[:keyword]).items
+    @kaminari_data = Kaminari.paginate_array(@youtube_data).page(params[:page]).per(2)
     if @current_user
       @playlists = Playlist.where(user_id: @current_user.id)
       if @playlists.length == 0

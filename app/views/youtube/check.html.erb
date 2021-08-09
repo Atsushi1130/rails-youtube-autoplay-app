@@ -1,14 +1,14 @@
 <div class="scroll-list jscroll">
-  <% @kaminari_data.each_with_index do |item,index| %>
+  <% @youtube_data.each_with_index do |item,index| %>
     <% snippet = item.snippet %>
     <div class="contents-container">
       <p><%= snippet.title %></p>
       <div><iframe class="video-contains" width="560" height="315" src="https://www.youtube.com/embed/<%= item.id.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-      <button class="js-modal-open-<%=  item.id.video_id%>">プレイリストに登録</button>
+      <button class="js-modal-open-"+"<%= index %>">プレイリストに登録</button>
     </div>
 
     <!-- modal -->
-    <div class="modal js-modal-<%= item.id.video_id %>">
+    <div class="modal js-modal-"+"<%= index %>">
       <div class="modal__bg js-modal-close"></div>
       <div class="modal__content">
         <% if @current_user %>
@@ -18,7 +18,7 @@
           <% else %>
             <% @playlists.each do |playlist| %>
               <div class="centered">
-                <p><%= link_to(playlist.name,"/playlist/#{playlist.id}/register/#{item.id.video_id}") %></p>
+                <p><%= link_to(playlist.name,"/playlist/#{playlist.id}/register/#{@youtube_data.items[index].id.video_id}") %></p>
               </div>
             <% end %>
           <% end %>
@@ -31,43 +31,35 @@
       </div>
     </div>
   <% end %>
-  <%= paginate @kaminari_data %>
+  <%= paginate @youtube_data %>
 </div>
 
 <script type="text/javascript">
   $(function(){
     <% @youtube_data.each_with_index do |item,index| %>
-      $(".js-modal-open-<%= item.id.video_id %>").on('click',function(){
-          $(".js-modal-<%= item.id.video_id %>").fadeIn();
+      $('.js-modal-open-<%= index %>').on('click',function(){
+          $('.js-modal-<%= index %>').fadeIn();
           return false;
       });
       $('.js-modal-close').on('click',function(){
-          $(".js-modal-<%= item.id.video_id %>").fadeOut();
+          $('.js-modal-<%= index %>').fadeOut();
           return false;
       });
+      <% @count += 1 %>
     <% end %>
   })
 
   $(window).on('scroll', function() {
     scrollHeight = $(document).height();
     scrollPosition = $(window).height() + $(window).scrollTop();
-    if ( (scrollHeight - scrollPosition) / scrollHeight <= 0) {
+    if ( (scrollHeight - scrollPosition) / scrollHeight <= 0.05) {
       $('.jscroll').jscroll({
         contentSelector: ".scroll-list",
         nextSelector: 'span.next:last a',
-        callback: function(){
-          <% @youtube_data.each_with_index do |item,index| %>
-            $(".js-modal-open-<%= item.id.video_id %>").on('click',function(){
-                $(".js-modal-<%= item.id.video_id %>").fadeIn();
-                return false;
-            });
-            $('.js-modal-close').on('click',function(){
-                $(".js-modal-<%= item.id.video_id %>").fadeOut();
-                return false;
-            });
-          <% end %>
-        }
       });
+      // $(document).on 'turbolinks:load', ->
+      //   $('.jscroll').jscroll ->
+      //    alert "clicked hogehoge"
     }
   });
 </script>

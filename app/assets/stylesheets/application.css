@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ nav.pagination {
+   display: none;
+ }
+ .scroll-list {
+   padding: 0;
+ }
 
 header{
   background-color: #0099FF;
@@ -148,7 +154,6 @@ footer{
 .edit:hover,.logout:hover{
   opacity: 0.8;
 }
-
 
 /* メディアクエリ */
 /* iPad Pro以下 */
