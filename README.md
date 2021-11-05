@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## version
+Ruby 2.6.8
 
-Things you may want to cover:
+Rails 6.1.4.1
 
-* Ruby version
+## 起動方法
+`git clone https://github.com/Atsushi1130/rails-youtube-autoplay-app myApp`
 
-* System dependencies
+`cd myApp`
 
-* Configuration
+` rails db:migrate `
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+` rails s `
